@@ -19,7 +19,22 @@
         <java.version>1.7</java.version>
 
         <version.protostuff>1.1.1</version.protostuff>
+        <version.guava>19.0</version.guava>
     </properties>
+
+    <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+    <dependencies>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${version.guava}</version>
+        </dependency>
+
+
+    </dependencies>
+
+
 
 
 
