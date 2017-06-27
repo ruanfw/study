@@ -11,6 +11,7 @@
 
     <modules>
         <module>design-pattern</module>
+        <module>multi-thread</module>
     </modules>
 
     <properties>
@@ -20,6 +21,7 @@
 
         <version.protostuff>1.1.1</version.protostuff>
         <version.guava>19.0</version.guava>
+
     </properties>
 
     <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
@@ -30,6 +32,8 @@
             <artifactId>guava</artifactId>
             <version>${version.guava}</version>
         </dependency>
+
+
 
 
     </dependencies>
