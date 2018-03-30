@@ -1,4 +1,4 @@
-package temp;
+package com.rfw.temp;
 
 import java.util.Date;
 

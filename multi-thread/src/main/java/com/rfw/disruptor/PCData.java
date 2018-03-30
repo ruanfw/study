@@ -1,4 +1,4 @@
-package disruptor;
+package com.rfw.disruptor;
 
 /**
  * Created by Administrator on 2017/6/27.

@@ -1,4 +1,4 @@
-package temp;
+package com.rfw.temp;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -28,8 +28,9 @@ public class SemapDemo implements Runnable {
         ExecutorService exe = Executors.newFixedThreadPool(20);
         final SemapDemo demo = new SemapDemo();
 
-        for (int i=0;i<20;i++){
+        for (int i = 0; i < 20; i++) {
             exe.submit(demo);
         }
+        exe.shutdown();
     }
 }

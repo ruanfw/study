@@ -1,4 +1,4 @@
-package temp;
+package com.rfw.temp;
 
 /**
  * Created by Administrator on 2017/6/22.
@@ -10,7 +10,7 @@ public class ThreadJoin {
     public static class T1 extends Thread {
         @Override
         public void run() {
-            for (; i < 1000000; i++) ;
+            for (; i < 100000; i++) ;
 
             System.out.println("t1 end");
         }

@@ -12,6 +12,8 @@
     <modules>
         <module>design-pattern</module>
         <module>multi-thread</module>
+        <module>zktest</module>
+        <module>nettytest</module>
     </modules>
 
     <properties>
@@ -21,6 +23,7 @@
 
         <version.protostuff>1.1.1</version.protostuff>
         <version.guava>19.0</version.guava>
+        <version.zookeeper>3.4.10</version.zookeeper>
 
     </properties>
 

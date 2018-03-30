@@ -1,4 +1,4 @@
-package disruptor;
+package com.rfw.disruptor;
 
 import com.lmax.disruptor.BlockingWaitStrategy;
 import com.lmax.disruptor.RingBuffer;
@@ -6,8 +6,7 @@ import com.lmax.disruptor.dsl.Disruptor;
 import com.lmax.disruptor.dsl.ProducerType;
 
 import java.nio.ByteBuffer;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
 
 /**
  * Created by Administrator on 2017/6/27.
@@ -16,16 +15,25 @@ public class Client {
 
     public static void main(String[] args) throws InterruptedException {
 
-        ExecutorService exe = Executors.newCachedThreadPool();
+//        ExecutorService exe = Executors.newCachedThreadPool();
+
+        ThreadFactory threadFactory = new ThreadFactory() {
+            @Override
+            public Thread newThread(Runnable r) {
+                Thread thread = new Thread(r);
+                System.out.println("create new thread");
+                return thread;
+            }
+        };
 
         PCDataFactory pcDataFactory = new PCDataFactory();
 
-        int bufferSize = 1024;
+        int ringBufferSize = 4;
 
-        Disruptor<PCData> disruptor = new Disruptor<PCData>(pcDataFactory, bufferSize, exe
+        Disruptor<PCData> disruptor = new Disruptor<>(pcDataFactory, ringBufferSize, threadFactory
                 , ProducerType.MULTI, new BlockingWaitStrategy());
 
-        disruptor.handleEventsWithWorkerPool(new Consumer(), new Consumer(), new Consumer(), new Consumer());
+        disruptor.handleEventsWithWorkerPool(new Consumer());
 
         disruptor.start();
 
@@ -37,7 +45,6 @@ public class Client {
             System.out.println("add data:" + i);
             bb.putLong(0, i);
             producer.pushData(bb);
-            Thread.sleep(100);
         }
     }
 

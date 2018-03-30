@@ -1,4 +1,4 @@
-package disruptor;
+package com.rfw.disruptor;
 
 import com.lmax.disruptor.RingBuffer;
 

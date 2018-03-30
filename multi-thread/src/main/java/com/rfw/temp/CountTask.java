@@ -1,4 +1,4 @@
-package temp;
+package com.rfw.temp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +57,7 @@ public class CountTask extends RecursiveTask<Long> {
 
     public static void main(String[] args) {
         ForkJoinPool forkJoinPool = new ForkJoinPool();
-        CountTask task = new CountTask(0, 200000L);
+            CountTask task = new CountTask(0, 200000L);
         ForkJoinTask<Long> result = forkJoinPool.submit(task);
 
         try {
